@@ -10,11 +10,17 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-select.min.css" rel="stylesheet">
+
+
         <style type="text/css">
             /*
 * Uses Font Awesome and Bootstrap 3
 * Both aren't required for this demo
 */
+            .bootstrap-select{
+                padding-left: 0px;
+            }
             #site-wrapper {
                 position: absolute;
                 overflow: hidden;
@@ -57,7 +63,7 @@ and open the template in the editor.
                 position: absolute;
                 top: 0;
                 left: -200px;
-                background: #428bca;
+                background: #404040;
                 padding: 15px;
                 bottom: 0;
             }
@@ -253,48 +259,47 @@ and open the template in the editor.
     <body>
 
 
-        <div id="site-wrapper" class="show-nav">
+        <div id="site-wrapper">
 
             <div id="site-canvas">
-
+                <!--Sidebar-->
                 <div id="site-menu">
-                    <div id="responsive-admin-menu">
-                        <!--Menu-->
+                    <div id="responsive-admin-menu" class="notext">
                         <div id="menu" style="margin-top: 15px;">
 
-                            <a href="" title="Dashboard" style="border-top: 1px dotted #52535a;"><i class="icon-dashboard"></i><span> 
+                            <a href="" title="Dashboard" style="border-top: 1px dotted #52535a;"><i class="icon-dashboard"></i><span class="notext"> 
                                     Dashboard</span></a>
-                            <a href="" title="News"><i class="icon-bullhorn"></i><span> News</span></a>
-                            <a href="" title="Pages"><i class="icon-file-alt"></i><span> Pages</span></a>
-                            <a href="" title="Media" class="submenu" name="media-sub"><i class="icon-eye-open"></i><span>  
+                            <a href="" title="News"><i class="icon-bullhorn"></i><span class="notext"> News</span></a>
+                            <a href="" title="Pages"><i class="icon-file-alt"></i><span class="notext"> Pages</span></a>
+                            <a href="" title="Media" class="submenu" name="media-sub"><i class="icon-eye-open"></i><span class="notext">  
                                     Media</span></a>
                             <!-- Media Sub Menu -->
                             <div id="media-sub">
-                                <a href="" title="Video Gallery"><i class="icon-film"></i><span>  
+                                <a href="" title="Video Gallery"><i class="icon-film"></i><span class="notext">  
                                         Video Gallery</span></a>
-                                <a href="" title="Photo Gallery"><i class="icon-picture"></i><span>  
+                                <a href="" title="Photo Gallery"><i class="icon-picture"></i><span class="notext">  
                                         Photo Gallery</span></a>
                             </div>
                             <!-- Media Sub Menu -->
 
-                            <a href="" title="Graph &amp; Charts"><i class="icon-bar-chart"></i><span>  
+                            <a href="" title="Graph &amp; Charts"><i class="icon-bar-chart"></i><span class="notext">  
                                     Graph &amp; Charts</span></a>
-                            <a href="" title="Events"><i class="icon-calendar"></i><span>  
+                            <a href="" title="Events"><i class="icon-calendar"></i><span class="notext">  
                                     Events</span></a>
 
-                            <a href="" class="submenu" name="other-sub" title="Other Contents"><i class="icon-book"></i><span> 
+                            <a href="" class="submenu" name="other-sub" title="Other Contents"><i class="icon-book"></i><span class="notext"> 
                                     Other Contents</span></a>
                             <!-- Other Contents Sub Menu -->
                             <div id="other-sub">
-                                <a href="" title="Forms"><i class="icon-list"></i><span>  
+                                <a href="" title="Forms"><i class="icon-list"></i><span class="notext">  
                                         Forms</span></a>
-                                <a href="" title="Mail Lists"><i class="icon-list-ul"></i><span>  
+                                <a href="" title="Mail Lists"><i class="icon-list-ul"></i><span class="notext">  
                                         Mail Lists</span></a>
-                                <a href="" title="Maps"><i class="icon-map-marker"></i><span>  
+                                <a href="" title="Maps"><i class="icon-map-marker"></i><span class="notext">  
                                         Maps</span></a>
                             </div>
                             <!-- Other Contents Sub Menu -->
-                            <a href="" title="Admin Tools"><i class="icon-cogs"></i><span>  
+                            <a href="" title="Admin Tools"><i class="icon-cogs"></i><span class="notext">  
                                     Admin Tools</span></a>
                         </div>
                         <!--Menu-->
@@ -304,13 +309,163 @@ and open the template in the editor.
                 </div>
 
 
+                <!--Productos-->
+                <div class="col-sm-9 col-md-6  main" style="padding-right: 20px;">
+                    <div class="page-header">
+                        <select class="selectpicker col-sm-6 col-md-5">
+                            <option data-icon="glyphicon glyphicon-th-large">Todos los productos</option>
+                            <option>Vinos viejos</option>
+                            <option>Vinos nuevos</option>
+                        </select> 
+                        <div class="input-group col-sm-5 col-md-4" style="float: right;">
+                            <input type="text" id="filter"
+                                   class="form-control" 
+                                   placeholder="Buscar" />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                        </div>
+                    </div>
+                    <div class="row placeholders">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <div class="thumbnail">
+                                <img src="imagenes/imagen1.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+                                <div class="caption">
 
-                <a href="#" class="toggle-nav btn btn-lg btn-success" id="big-sexy"><i class="fa fa-bars"></i> Toggle Nav</a>
+                                    <span class="text-muted">Gordo toni</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <div class="thumbnail">
+                                <img src="imagenes/imagen2.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+                                <div class="caption">
 
-                <h1 class="text-center">Off Canvas Menu Tutorial</h1>
+                                    <span class="text-muted">Flaco vargas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <div class="thumbnail">
+                                <img src="imagenes/imagen3.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+                                <div class="caption">
 
-                <p class="lead text-center">Basic demo showing how to easily implement an Off Canvas Menu by <a href="http://scotch.io/tutorials/off-canvas-menus-with-css3-transitions-and-transforms">scotch.io</a>.</p>
+                                    <span class="text-muted">Flaco toni</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <div class="thumbnail">
+                                <img src="imagenes/imagen4.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+                                <div class="caption">
 
+                                    <span class="text-muted">Ricardo arjona</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <div class="thumbnail">
+                                <img src="imagenes/imagen5.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+                                <div class="caption">
+
+                                    <span class="text-muted">Juepucha</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <div class="thumbnail">
+                                <img src="imagenes/imagen6.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+                                <div class="caption">
+
+                                    <span class="text-muted">No te lo puedo creer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <div class="thumbnail">
+                                <img src="imagenes/imagen7.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+                                <div class="caption">
+
+                                    <span class="text-muted">Barbaridad</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <div class="thumbnail">
+                                <img src="imagenes/imagen8.jpg" class="img-responsive" alt="Generic placeholder thumbnail">
+                                <div class="caption">
+                                    <span class="text-muted">Si señor</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Tabla de Ventas-->
+                <div class="col-sm-9 col-md-4 main" style="padding-left: 20px;border-left: 2px solid #EEE">
+                    <div class="page-header" >
+                        <div class="col-md-offset-3">
+                            <button type="button" class="btn btn-default" style="margin-bottom: 10px;">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                Carrito de venta (0)</button>    
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Header</th>
+                                    <th>Header</th>
+                                    <th>Header</th>
+                                    <th>Header</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1,001</td>
+                                    <td>Lorem</td>
+                                    <td>ipsum</td>
+                                    <td>dolor</td>
+                                    <td>sit</td>
+                                </tr>
+                                <tr>
+                                    <td>1,002</td>
+                                    <td>amet</td>
+                                    <td>consectetur</td>
+                                    <td>adipiscing</td>
+                                    <td>elit</td>
+                                </tr>
+                                <tr>
+                                    <td>1,003</td>
+                                    <td>Integer</td>
+                                    <td>nec</td>
+                                    <td>odio</td>
+                                    <td>Praesent</td>
+                                </tr>
+                                <tr>
+                                    <td>1,003</td>
+                                    <td>libero</td>
+                                    <td>Sed</td>
+                                    <td>cursus</td>
+                                    <td>ante</td>
+                                </tr>
+                                <tr>
+                                    <td>1,004</td>
+                                    <td>dapibus</td>
+                                    <td>diam</td>
+                                    <td>Sed</td>
+                                    <td>nisi</td>
+                                </tr>
+
+                                <tr>
+                                    <td>1,015</td>
+                                    <td>sodales</td>
+                                    <td>ligula</td>
+                                    <td>in</td>
+                                    <td>libero</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
 
             </div>
@@ -319,16 +474,21 @@ and open the template in the editor.
     </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript">
-    /*====================================
-     =            ON DOM READY            =
-     ====================================*/
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script>
     $(function() {
-
-        // Toggle Nav on Click
-        $('.toggle-nav').click(function() {
-            // Calling a function in case you want to expand upon this.
-            toggleNav();
+        $(".selectpicker").selectpicker();
+        $('#filter').keyup(function() {
+            var filter = $(this).val();
+            $("div.placeholder").each(function() {
+                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    $(this).addClass("hidden");
+                } else {
+                    $(this).removeClass("hidden");
+                    //count++;
+                }
+            });
         });
 
         $("#menu").hover(function() {
@@ -344,22 +504,6 @@ and open the template in the editor.
         }
         );
     });
-
-
-    /*========================================
-     =            CUSTOM FUNCTIONS            =
-     ========================================*/
-    function toggleNav() {
-        if ($('#site-wrapper').hasClass('show-nav')) {
-            // Do things on Nav Close
-
-        } else {
-            // Do things on Nav Open
-
-        }
-
-        //$('#site-wrapper').toggleClass('show-nav');
-    }
 
 
 </script>
