@@ -254,10 +254,103 @@ and open the template in the editor.
                 }
             }
         </style>
+        <style type="text/css">
+            .searchbox{
+                position:relative;
+                height:40px;
+                width:100%;
+                float:right;
+            }
+            .searchbox-input{
+                position:absolute;
+                top:0;
+                right:0;
+                border:0;
+                outline:0;
+                background:#dcddd8;
+                width:100%;
+                height:40px;
+                margin:0;
+                padding-left: 20px;
+                font-size:20px;
+                color:red;
+            }
+            .searchbox-input::-webkit-input-placeholder {
+                color: #d74b4b;
+            }
+            .searchbox-input:-moz-placeholder {
+                color: #d74b4b;
+            }
+            .searchbox-input::-moz-placeholder {
+                color: #d74b4b;
+            }
+            .searchbox-input:-ms-input-placeholder {
+                color: #d74b4b;
+            }
+            .searchbox-icon,
+            .searchbox-submit{
+                width:40px;
+                //height:50px;
+                display:block;
+                position:absolute;
+                top:0;
+                font-family:verdana;
+                font-size:22px;
+                right:0;
+                padding:0;
+                margin:0;
+                border:0;
+                outline:0;
+                line-height:40px;
+                text-align:center;
+                cursor:pointer;
+                color:#dcddd8;
+                background:#172b3c;
+            }
+            .searchbox{
+                position:relative;
+                min-width:40px;
+                width:0%;
+                height:50px;
+                float:right;
+                overflow:hidden;
+                -webkit-transition: width 0.3s;
+                -moz-transition: width 0.3s;
+                -ms-transition: width 0.3s;
+                -o-transition: width 0.3s;
+                transition: width 0.3s;
+            }
+            .searchbox-open{
+                width:100%;
+            }
+            .bootstrap-select.btn-group:not(.input-group-btn), .bootstrap-select.btn-group[class*="span"] {
+                margin-bottom: 0px;
+            }
+            .btn-group, .btn-group-vertical {
+                position: absolute;
+            }
+            .navbar-inverse {
+                background-color: #404040;
+                border-color: #404040;
+            }
+        </style>
         <link rel="stylesheet" href="css/font-awesome.css">
     </head>
     <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
 
+                </div>
+            </div>
+        </div>
 
         <div id="site-wrapper">
 
@@ -265,7 +358,7 @@ and open the template in the editor.
                 <!--Sidebar-->
                 <div id="site-menu">
                     <div id="responsive-admin-menu" class="notext">
-                        <div id="menu" style="margin-top: 15px;">
+                        <div id="menu" style="margin-top: 65px;">
 
                             <a href="" title="Dashboard" style="border-top: 1px dotted #52535a;"><i class="icon-dashboard"></i><span class="notext"> 
                                     Dashboard</span></a>
@@ -311,18 +404,17 @@ and open the template in the editor.
 
                 <!--Productos-->
                 <div class="col-sm-9 col-md-6  main" style="padding-right: 20px;">
+                    <select class="col-sm-6 col-md-5 selectpicker">
+                        <option data-icon="glyphicon glyphicon-th-large">Todos los productos</option>
+                        <option>Vinos viejos</option>
+                        <option>Vinos nuevos</option>
+                    </select> 
+                    <form class="searchbox">
+                        <input type="text" placeholder="Buscar" name="search" class="searchbox-input" required>
+                        <span class="input-group-addon searchbox-icon"><i class="glyphicon glyphicon-search"></i></span>
+                    </form>
                     <div class="page-header">
-                        <select class="selectpicker col-sm-6 col-md-5">
-                            <option data-icon="glyphicon glyphicon-th-large">Todos los productos</option>
-                            <option>Vinos viejos</option>
-                            <option>Vinos nuevos</option>
-                        </select> 
-                        <div class="input-group col-sm-5 col-md-4" style="float: right;">
-                            <input type="text" id="filter"
-                                   class="form-control" 
-                                   placeholder="Buscar" />
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                        </div>
+
                     </div>
                     <div class="row placeholders">
                         <div class="col-xs-6 col-sm-3 placeholder">
@@ -399,13 +491,14 @@ and open the template in the editor.
                     </div>
                 </div>
                 <!--Tabla de Ventas-->
-                <div class="col-sm-9 col-md-4 main" style="padding-left: 20px;border-left: 2px solid #EEE">
+                <div class="col-sm-9 col-md-5 main" style="padding-left: 20px;border-left: 2px solid #EEE">
+                    <div class="col-md-offset-3" style="position: absolute;">
+                        <button type="button" class="btn btn-default" style="margin-bottom: 10px;">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            Carrito de venta (0)</button>    
+                    </div>
                     <div class="page-header" >
-                        <div class="col-md-offset-3">
-                            <button type="button" class="btn btn-default" style="margin-bottom: 10px;">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                Carrito de venta (0)</button>    
-                        </div>
+
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -501,8 +594,23 @@ and open the template in the editor.
             $("#responsive-admin-menu").addClass("notext");
             $("#responsive-admin-menu #menu a span").addClass("notext");
             $('#site-wrapper').removeClass('show-nav');
-        }
-        );
+        });
+
+        var submitIcon = $('.searchbox-icon');
+        var inputBox = $('.searchbox-input');
+        var searchBox = $('.searchbox');
+        var isOpen = false;
+        submitIcon.click(function() {
+            if (isOpen == false) {
+                searchBox.addClass('searchbox-open');
+                inputBox.focus();
+                isOpen = true;
+            } else {
+                searchBox.removeClass('searchbox-open');
+                inputBox.focusout();
+                isOpen = false;
+            }
+        });
     });
 
 
